@@ -1,6 +1,6 @@
-export const startScreen = document.getElementById('startScreen');
-export const gameScreen = document.getElementById('gameScreen');
-export const endScreen = document.getElementById('endScreen');
+const startScreen = document.getElementById('startScreen');
+const gameScreen = document.getElementById('gameScreen');
+const endScreen = document.getElementById('endScreen');
 
 const continueBtn = document.getElementById('continue');
 
@@ -26,7 +26,7 @@ document.getElementById('hard').addEventListener('click', () => setupColorGame('
 
 const targetClrBox = document.getElementById('targetClr');
 
-export function initializeGame() {
+function initializeGame() {
   const clrs = [
     'rgb(238, 82, 83)',
     'rgb(87, 101, 116)',
@@ -105,7 +105,7 @@ function transitionEffect() {
   }, 200);
 }
 
-export function startNewGame() {
+function startNewGame() {
   console.log('Starting new game...'); // Add this line to check if startNewGame is called
   if (games < 10) {
     games++;
@@ -129,7 +129,7 @@ console.log(gamesBox);
 
 let gameInterval; // Define game interval variable
 
-export function setupColorGame(difficulty, intervalTime) {
+function setupColorGame(difficulty, intervalTime) {
   clearInterval(gameInterval); // Clear any existing game interval
 
   points = 0;
