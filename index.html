@@ -15,9 +15,9 @@
     <div id="startScreen">
     
       <center>
-        <button id="easy">Easy</button>
-        <button id="medium">Medium</button>
-        <button id="hard">Hard</button>      
+        <button id="easy" class="diffbtns">Easy</button>
+        <button id="medium" class="diffbtns">Medium</button>
+        <button id="hard" class="diffbtns">Hard</button>      
       </center>
   
     </div>
@@ -63,7 +63,7 @@
   
   
   
-    <div id="endScreen" class="hidden">
+    <div id="endScreen" >
       
       <center>      
         
@@ -72,12 +72,14 @@
           <span id="score"></span> / 10
         </div>
     
-        </div>
+        <button id="continue">Continue</button>
       </center>
 
   </div>
 
-  <script type="module" src="./scripts/main.js"></script>
+
+
+  <script type="module" src="./scripts/game.js"></script>
   
 </body>
 </html>

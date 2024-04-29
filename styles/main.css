@@ -1,5 +1,3 @@
-/* main.css */
-
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +6,7 @@
 
 body {
   transition: background-color 0.1s ease-in-out;
-
 }
-
-/* main.css */
 
 #container {
   display: flex;
@@ -20,9 +15,6 @@ body {
   justify-content: center; /* vertically center the content */
   height: 100vh; /* make the container fill the entire viewport height */
 }
-
-
-
 
 .hidden {
   display: none;
@@ -33,6 +25,14 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100vh;
+}
+
+#gameScreen {
+  display: none;
+}
+
+#endScreen {
+  display: none;
 }
 
 .clrBox {
@@ -58,5 +58,69 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 7px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
+}
+
+.diffbtns {
+  width: 100px;
+  height: 40px;
+  border: 1px dashed black;
+  border-radius: 5px;
+  margin: 4px;
+  transition: 0.1s ease-out;
+}
+
+.diffbtns:hover {
+  width: 120px;
+  height: 50px;
+  border: 2px dashed black;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 992px) {
+  #gridClrs {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .clrBox {
+    width: 80px;
+    height: 80px;
+    margin: 2px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #gridClrs {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .clrBox {
+    width: 60px;
+    height: 60px;
+    margin: 2px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #gridClrs {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .clrBox {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #gridClrs {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .clrBox {
+    width: 240px;
+    height: 240px;
+    margin: 2px;
+  }
 }
