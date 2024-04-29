@@ -2,11 +2,9 @@ export const startScreen = document.getElementById('startScreen');
 export const gameScreen = document.getElementById('gameScreen');
 export const endScreen = document.getElementById('endScreen');
 
-
 const continueBtn = document.getElementById('continue');
 
 continueBtn.addEventListener('click', () => {
-  // console.log('Continue button clicked');
   endScreen.style.display = 'none';
   startScreen.style.display = 'block';
 });
@@ -29,8 +27,6 @@ document.getElementById('hard').addEventListener('click', () => setupColorGame('
 const targetClrBox = document.getElementById('targetClr');
 
 export function initializeGame() {
-
-  // console.log('Initializing game...');
   const clrs = [
     'rgb(238, 82, 83)',
     'rgb(87, 101, 116)',
@@ -81,58 +77,45 @@ function addBoxEventListeners() {
   boxes.forEach(box => {
     box.addEventListener('click', checkColorMatch);
   }); 
-
 }
 
 function checkColorMatch(event) {
-
   const clickedColor = event.target.style.backgroundColor;
   const targetColor = targetClrBox.style.backgroundColor;
 
   if (clickedColor === targetColor) {
     points++;
     pointsBox.textContent = `Points: ${points}`;
-
-    // Change background color of the body to green
     document.body.style.backgroundColor = 'green';
-
-    // Trigger the transition effect immediately after changing to green
     transitionEffect();
   } else {
-    // Change background color of the body to red
     document.body.style.backgroundColor = 'red';
     transitionEffect();
   }
 
-  // Remove event listeners from all boxes
   const boxes = document.querySelectorAll('.clrBoxes');
   boxes.forEach(box => {
     box.removeEventListener('click', checkColorMatch);
   });
-
-  
 }
 
 function transitionEffect() {
-
-  // After the transition is complete, change background color to white and reset opacity
   setTimeout(() => {
     document.body.style.backgroundColor = 'aliceblue';
-
   }, 200);
 }
 
 export function startNewGame() {
-  // console.log('Starting new game...');
+  console.log('Starting new game...'); // Add this line to check if startNewGame is called
   if (games < 10) {
-    initializeGame();
     games++;
+    gamesPlayed = 0;
+    console.log(`Games: ${games}`); // Add this line to check the value of games
     gamesBox.textContent = `Games: ${games}`;
     pointsBox.textContent = `Points: ${points}`;
   } else {
     gameScreen.style.display = 'none';
     endScreen.style.display = 'block';
-    let score = document.getElementById('score');
     score.innerHTML = points;
     games = 1;
     points = 0;
@@ -142,11 +125,15 @@ export function startNewGame() {
   }
 }
 
+console.log(gamesBox);
 
-// In setupColorGame function
+let gameInterval; // Define game interval variable
+
 export function setupColorGame(difficulty, intervalTime) {
+  clearInterval(gameInterval); // Clear any existing game interval
+
   points = 0;
-  games = 0; // Set games to 0 initially
+  games = 0;
   gamesPlayed = 0;
   pointsBox.textContent = `Points: ${points}`; 
 
@@ -155,28 +142,15 @@ export function setupColorGame(difficulty, intervalTime) {
   gameScreen.style.display = 'flex';
   endScreen.style.display = 'none';
 
-  // Reset points and games counters in the display
   gamesBox.textContent = `Games: ${games}`;
 
-  // Call playGame with the specified interval time
-  playGame(intervalTime);
-}
-
-// In playGame function
-export function playGame(intervalTime) {
-  // Call startNewGame immediately
-  startNewGame();
-  gamesPlayed++;
-
-  // Check if all games have been played
-  if (gamesPlayed < 10) {
-    // Call playGame again after the specified interval
-    setTimeout(() => {
-      playGame(intervalTime);
-    }, intervalTime);
-  } else {
-    // Display endScreen or take any other necessary actions
-    gameScreen.style.display = 'none';
-    endScreen.style.display = 'block';
-  }
+  // Start a new game immediately after setting up the game
+  initializeGame();
+  
+  // Start a new game interval
+  gameInterval = setInterval(() => {
+    gamesPlayed++;
+    startNewGame(); // Call startNewGame() after initializing the game
+    initializeGame(); // Initialize the game for the next round
+  }, intervalTime);
 }
