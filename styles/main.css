@@ -67,7 +67,7 @@ body {
   border: 1px dashed black;
   border-radius: 5px;
   margin: 4px;
-  transition: 0.1s ease-out;
+  transition: 0.1s linear;
 }
 
 .diffbtns:hover {
