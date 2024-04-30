@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Color Match Chaos</title>
 
   <link rel="stylesheet" href="./styles/main.css">
@@ -15,9 +15,65 @@
     <div id="startScreen">
     
       <center>
-        <button id="easy" class="diffbtns">Easy</button>
-        <button id="medium" class="diffbtns">Medium</button>
-        <button id="hard" class="diffbtns">Hard</button>      
+
+        
+        <h1 id="heading"><span id="c1">C</span><span id="c2">o</span><span id="c3">l</span><span id="c4">o</span><span id="c5">u</span><span id="c6">r</span><span id="c7">M</span><span id="c8">a</span><span id="c9">t</span><span id="c10">c</span><span id="c11">h</span><span id="c12">C</span><span id="c13">h</span><span id="c14">a</span><span id="c15">o</span><span id="c16">s</span></h1> 
+        <h5 id="rotate">Rotate your device to 'Landscape'.</div>
+        
+        <div id="btnanddefine">
+
+
+          <div class="tooltip-container">
+            <span>
+              <button class="pushable diffbtns" id="easy">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  Easy
+                </span>
+              </button>
+            </span>
+            <span class="tooltip">              
+              In Easy Mode, <br> the game consists of 10 rounds with a 2-second interval between each round. Players must select the correct colour before the next round appears.
+            </span>
+          </div>
+
+          <div class="tooltip-container">
+            <span>
+              <button class="pushable diffbtns" id="medium">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  Medium
+                </span>
+              </button>
+            </span>
+            <span class="tooltip">              
+              In Medium Mode, <br> the game consists of 10 rounds with a 1.5-second interval between each round. Players must select the correct colour before the next round appears.
+            </span>
+          </div>
+
+          <div class="tooltip-container">
+            <span>
+              <button class="pushable diffbtns" id="hard">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">
+                  Hard
+                </span>
+              </button>
+            </span>
+            <span class="tooltip">              
+              In Hard Mode, <br>the game consists of 10 rounds with a 1.2 -second interval between each round. Players must select the correct colour before the next round appears.
+            </span>
+          </div>
+
+        </div>
+
+        
+
+
+
       </center>
   
     </div>
@@ -25,18 +81,23 @@
   
     <div id="gameScreen" class="hidden">
   
-      <div id="targetBox">
-        <div id="targetClr" class="clrBox"></div>
-  
-      </div>
       
-      <div>
-        <span id="pointsBox">Points : 0</span> / 10
-      </div>
+      <div id="topGameScreen">
+
+        <div id="pointsBoxCont">
+          <span id="pointsBox">Points : 0</span> / 10
+        </div>
   
-      <div>
-        <span id="gamesBox">Games : 1</span> / 10
-      </div>
+        <div id="targetBox">
+          <div id="targetClr" class="clrBox"></div>
+    
+        </div>
+          
+        <div id="gamesBoxCont">
+          <span id="gamesBox">Games : 1</span> / 10
+        </div>
+
+      </div>    
   
   
       <div id="gridClrs">
@@ -67,12 +128,20 @@
       
       <center>      
         
-        <h1>Game End</h1>
-        <div>
+        <h1 id="endTitle"><span id="cc1">G</span><span id="cc2">a</span><span id="cc3">m</span><span id="cc4">e</span><span id="cc5">E</span><span id="cc6">n</span><span id="cc7">d</span></h1>
+        <div id="scoreBox">
           <span id="score"></span> / 10
         </div>
     
-        <button id="continue">Continue</button>
+        <button class="pushable" id="continue">
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front">
+            Continue
+          </span>
+        </button>
+
+        <!-- <button id="continue">Continue</button> -->
         <div id="encourageBox"></div>
       </center>
 
@@ -84,3 +153,4 @@
   
 </body>
 </html>
+

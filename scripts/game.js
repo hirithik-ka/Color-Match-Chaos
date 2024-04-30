@@ -22,7 +22,7 @@ score.innerHTML = points;
 
 document.getElementById('easy').addEventListener('click', () => setupColorGame('easy', 2000));
 document.getElementById('medium').addEventListener('click', () => setupColorGame('medium', 1500));
-document.getElementById('hard').addEventListener('click', () => setupColorGame('hard', 1300));
+document.getElementById('hard').addEventListener('click', () => setupColorGame('hard', 1200));
 
 const targetClrBox = document.getElementById('targetClr');
 
@@ -101,7 +101,7 @@ function checkColorMatch(event) {
 
 function transitionEffect() {
   setTimeout(() => {
-    document.body.style.backgroundColor = 'aliceblue';
+    document.body.style.backgroundColor = '#171717';
   }, 200);
 }
 
@@ -141,22 +141,22 @@ function setupColorGame(difficulty, intervalTime) {
   playGame(intervalTime);
 
   if (difficulty === 'easy') {
-    encourageBox.textContent = `
-    You breezed through Easy mode!
+    encourageBox.innerHTML = `
+    You breezed through Easy mode! <br>
     Think you're up for the challenge of Medium mode?
     `;
   } else if (difficulty === 'medium') {
-    encourageBox.textContent = `
-    You're unstoppable! 
+    encourageBox.innerHTML = `
+    You're unstoppable! <br>
     Ready to test your skills against the toughest challenges in Hard mode?
     `;
   } else if (difficulty === 'hard') {
-    encourageBox.textContent = `
+    encourageBox.innerHTML = `
     Well done! Now it's time to raise the stakes and try your luck!
     `;
   } else {
     // Default
-    encourageBox.textContent = `Impressive!`;
+    encourageBox.innerHTML = `Impressive!`;
   }
 }
 
@@ -182,3 +182,4 @@ function playGame(intervalTime) {
     }
   }, intervalTime);
 }
+

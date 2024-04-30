@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
+  color: white;
 }
 
 body {
   transition: background-color 0.1s ease-in-out;
+  overflow: hidden;
+  background-color: #171717;
 }
 
 #container {
@@ -19,6 +25,13 @@ body {
 .hidden {
   display: none;
 }
+#rotate {
+  margin-top: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+
 
 #gameScreen {
   flex-direction: column;
@@ -35,10 +48,22 @@ body {
   display: none;
 }
 
+#topGameScreen {
+  display: flex;
+  align-items: center;
+}
+#pointsBoxCont, #gamesBoxCont {
+  margin: 10px;
+  margin-top: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+
 .clrBox {
   width: 125px;
   height: 125px;
-  border: 1px dashed black;
+  /* border: 1px dashed white; */
   border-radius: 7px;
   margin: 3px;
   transition: background-color 0.5s ease;
@@ -47,11 +72,12 @@ body {
 .clrBoxes:hover {
   margin-top: -3px;
   margin-left: -1px;
+  border: 1px dashed white;
 }
 
 #targetClr {
   margin-top: 20px;
-  border: 1px solid black;
+  /* border: 1px solid white; */
 }
 
 #gridClrs {
@@ -61,20 +87,19 @@ body {
   margin-bottom: 20px;
 }
 
-.diffbtns {
-  width: 100px;
-  height: 40px;
-  border: 1px dashed black;
-  border-radius: 5px;
-  margin: 4px;
-  transition: 0.1s linear;
+#scoreBox {
+  margin: 20px;
 }
 
-.diffbtns:hover {
-  width: 120px;
-  height: 50px;
-  border: 2px dashed black;
-  font-size: 16px;
+#continue {
+  margin: 20px;
+  margin-top: 10px;
+}
+
+#encourageBox {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 992px) {
@@ -88,6 +113,7 @@ body {
     margin: 2px;
   }
 }
+
 
 @media screen and (max-width: 768px) {
   #gridClrs {
@@ -123,4 +149,309 @@ body {
     height: 240px;
     margin: 2px;
   }
+}
+
+#heading {
+  /* -webkit-text-stroke: 1px #fff; */
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
+  font-family: "Pacifico", cursive;
+  font-size: 40px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 2px;
+  margin-top: -30px;
+}
+/* vibgyor */
+
+#c1{
+  background-color: red;
+  color: violet;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+#c2{
+  background-color: orange;
+  color: indigo;
+}
+#c3{
+  background-color: yellow;
+  color: blue;
+}
+#c4{
+  background-color: green;
+  color: white;
+}
+#c5{
+  background-color: blue;
+  color: yellow;
+}
+#c5{
+  background-color: indigo;
+  color: orange;
+}
+#c5{
+  background-color: violet;
+  color: red;
+}
+#c6{
+  background-color: red;
+  color: violet;
+  margin-right: 20px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+#c7{
+  background-color: orange;
+  color: indigo;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+#c8{
+  background-color: yellow;
+  color: blue;
+}
+#c9{
+  background-color: green;
+  color: white;
+}
+#c10{
+  background-color: blue;
+  color: violet;
+}
+#c11{
+  background-color: indigo;
+  color: violet;
+  margin-right: 20px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+#c12{
+  background-color: violet;
+  color: red;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+#c13{
+  background-color: red;
+  color: orange;
+}
+#c14{
+  background-color: orange;
+  color: yellow;
+}
+#c15{
+  background-color: yellow;
+  color: green;
+}
+#c16{
+  background-color: green;
+  color: blue;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+
+.pushable {
+  position: relative;
+  background: transparent;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  outline-offset: 4px;
+  outline-color: #171717;
+  transition: filter 250ms;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  margin: 5px;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: hsl(229, 14%, 22%);
+  border-radius: 8px;
+  filter: blur(2px);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    hsl(248, 39%, 39%) 0%,
+    hsl(248, 39%, 49%) 8%,
+    hsl(248, 39%, 39%) 92%,
+    hsl(248, 39%, 29%) 100%
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  background: hsl(248, 53%, 58%);
+  padding: 16px 32px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.pushable:hover {
+  filter: brightness(120%);
+}
+
+.pushable:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.pushable:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.diffbtns {
+  width: 150px;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+  margin-top: 10px;
+}
+
+
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  background: #0b798a;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  min-width: 180px; 
+  min-height: 300;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+  Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #0e94a0 transparent;
+  transform: translateX(-50%);
+}
+
+.tooltip-container:hover .tooltip {
+  top: 120%;
+  opacity: 1;
+  visibility: visible;
+  background: #f87929;
+  transform: translate(-50%, -5px);
+}
+
+#endTitle {
+  font-family: "Pacifico", cursive;
+  font-size: 40px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 2px;
+  margin-top: -30px;
+}
+
+#cc1{
+  background-color: red;
+  color: violet;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+#cc2{
+  background-color: orange;
+  color: indigo;
+}
+#cc3{
+  background-color: yellow;
+  color: blue;
+}
+#cc4{
+  background-color: green;
+  color: white;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  margin-right: 20px;
+
+}
+#cc5{
+  background-color: blue;
+  color: yellow;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+#cc5{
+  background-color: indigo;
+  color: orange;
+}
+#cc5{
+  background-color: violet;
+  color: red;
+}
+#cc6{
+  background-color: red;
+  color: violet;
+
+}
+#cc7{
+  background-color: orange;
+  color: indigo;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
