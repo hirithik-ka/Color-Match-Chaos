@@ -14,15 +14,6 @@ body {
   background-color: #171717;
 }
 
-#warning-message { display: none; }
-@media only screen and (orientation:portrait){
-    #wrapper { display:none; }
-    #warning-message { display:block; }
-}
-@media only screen and (orientation:landscape){
-    #warning-message { display:none; }
-}
-
 #container {
   display: flex;
   flex-direction: column;
