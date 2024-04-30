@@ -116,6 +116,10 @@ body {
 
 
 @media screen and (max-width: 768px) {
+
+  body{
+    overflow-y: scroll;
+  }
   #gridClrs {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -125,9 +129,15 @@ body {
     height: 60px;
     margin: 2px;
   }
+
 }
 
 @media screen and (max-width: 576px) {
+
+  body{
+    overflow-y: scroll;
+  }
+
   #gridClrs {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -140,6 +150,11 @@ body {
 }
 
 @media screen and (max-width: 400px) {
+
+  body{
+    overflow-y: scroll;
+  }
+  
   #gridClrs {
     grid-template-columns: repeat(5, 1fr);
   }
