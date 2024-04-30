@@ -13,7 +13,7 @@ const pointsBox = document.getElementById('pointsBox');
 let points = 0;
 
 const gamesBox = document.getElementById('gamesBox');
-let games = 1;
+let games = 0;
 
 let gamesPlayed = 0;
 
@@ -106,18 +106,16 @@ function transitionEffect() {
 }
 
 function startNewGame() {
-  console.log('Starting new game...'); // Add this line to check if startNewGame is called
   if (games < 10) {
     games++;
     gamesPlayed = 0;
-    console.log(`Games: ${games}`); // Add this line to check the value of games
     gamesBox.textContent = `Games: ${games}`;
     pointsBox.textContent = `Points: ${points}`;
   } else {
     gameScreen.style.display = 'none';
     endScreen.style.display = 'block';
     score.innerHTML = points;
-    games = 1;
+    games = 0;
     points = 0;
     gamesPlayed = 0;
     pointsBox.textContent = `Points: ${points}`;
@@ -125,13 +123,7 @@ function startNewGame() {
   }
 }
 
-console.log(gamesBox);
-
-let gameInterval; // Define game interval variable
-
 function setupColorGame(difficulty, intervalTime) {
-  clearInterval(gameInterval); // Clear any existing game interval
-
   points = 0;
   games = 0;
   gamesPlayed = 0;
@@ -144,13 +136,28 @@ function setupColorGame(difficulty, intervalTime) {
 
   gamesBox.textContent = `Games: ${games}`;
 
-  // Start a new game immediately after setting up the game
-  initializeGame();
-  
-  // Start a new game interval
-  gameInterval = setInterval(() => {
-    gamesPlayed++;
-    startNewGame(); // Call startNewGame() after initializing the game
-    initializeGame(); // Initialize the game for the next round
+  playGame(intervalTime);
+}
+
+function playGame(intervalTime) {
+  initializeGame(); // Initialize the game immediately
+  startNewGame(); // Start the new game immediately
+
+  let gameInterval = setInterval(() => {
+    
+    if (endScreen.style.display === 'block' ||   startScreen.style.display === 'block') {
+      clearInterval(gameInterval); // Clear the game interval once all games are played
+
+    }
+
+    if (gamesPlayed < 10) {
+      gamesPlayed++;
+      initializeGame();
+      startNewGame();
+    } else {
+      score.innerHTML = points;
+      gameScreen.style.display = 'none';
+      endScreen.style.display = 'block';
+    }
   }, intervalTime);
 }
